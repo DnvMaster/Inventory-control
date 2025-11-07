@@ -31,37 +31,29 @@
                                     </span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
-                                    <!-- item-->
+
                                     <div class="dropdown-header noti-title">
                                         <h6 class="text-overflow m-0">Привет !</h6>
                                     </div>
         
-                                    <!-- item-->
                                     <a href="pages-profile.html" class="dropdown-item notify-item">
                                         <i class="mdi mdi-account-circle-outline fs-16 align-middle"></i>
                                         <span>Аккаунт</span>
                                     </a>
         
-                                    <!-- item-->
                                     <a href="auth-lock-screen.html" class="dropdown-item notify-item">
                                         <i class="mdi mdi-lock-outline fs-16 align-middle"></i>
                                         <span>Блокировка</span>
                                     </a>
         
                                     <div class="dropdown-divider"></div>
-        
-                                    <!-- item-->
                                      <a href="{{ route('admin.logout') }}" class="dropdown-item notify-item">
                                         <i class="mdi mdi-location-exit fs-16 align-middle"></i>
                                         <span>Выход</span>
                                     </a>
-        
                                 </div>
                             </li>
-        
                         </ul>
                     </div>
-
-                </div>
-               
+                </div>  
             </div>

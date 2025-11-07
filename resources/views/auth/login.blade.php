@@ -15,22 +15,28 @@
                         <div class="row">
                             <div class="col-md-7 mx-auto">
                                 <div class="mb-0 border-0 p-md-5 p-lg-0 p-4">
-                                    <div class="mb-4 p-0">
-                                        <a href="index.html" class="auth-logo">
-                                            <img src="{{ asset('backend/images/logo-dark.png') }}" alt="logo-dark" class="mx-auto" height="28" />
-                                        </a>
-                                    </div>
                                     <div class="pt-0">
                                         <form action="{{ route('login') }}" method="post" class="my-4">
                                             @csrf
+                                            @if(session('error'))
+                                                <div class="alert alert-danger">
+                                                    {{ session('error') }}
+                                                </div>
+                                            @endif
                                             <div class="form-group mb-3">
                                                 <label for="emailaddress" class="form-label">Електронная почта</label>
                                                 <input class="form-control" type="email" name="email" id="emailaddress" required="" placeholder="Введите свой Е-мэйл">
+                                                 @error('email')
+                                                    <smail class="text-danger">{{ $message }}</smail>
+                                                @enderror
                                             </div>
-                
+                                           
                                             <div class="form-group mb-3">
                                                 <label for="password" class="form-label">Пароль</label>
                                                 <input class="form-control" type="password" name="password" required="" id="password" placeholder="Введите свой пароль">
+                                                 @error('password')
+                                                    <smail class="text-danger">{{ $message }}</smail>
+                                                @enderror
                                             </div>
                 
                                             <div class="form-group d-flex mb-3">
@@ -40,11 +46,7 @@
                                                         <label class="form-check-label" for="checkbox-signin">Запомнить</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-6 text-end">
-                                                    @if (Route::has('password.request'))
-                                                        <a class='text-muted fs-14' href='{{ route('password.request') }}'>Восстановить пароль?</a>
-                                                    @endif                             
-                                                </div>
+                
                                             </div>
                                             <div class="form-group mb-0 row">
                                                 <div class="col-12">
@@ -54,7 +56,7 @@
                                                 </div>
                                             </div>
                                         </form>
-                                        <div class="saprator my-4"><span>или</span></div>
+                                        <div class="saprator my-4"><span>или войдите с помощью</span></div>
                                         <div class="text-center text-muted mb-4">
                                             <p class="mb-0">У вас ещё нет аккаунта ?<a class='text-primary ms-2 fw-medium' href='{{ route('register') }}'>Зарегистрируйтесь</a></p>
                                         </div>
