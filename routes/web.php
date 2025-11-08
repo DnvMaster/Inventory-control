@@ -23,3 +23,5 @@ require __DIR__.'/auth.php';
 
 Route::post('/admin/login', [AdminController::class, 'adminLogin'])->name('admin.login');
 Route::get('/admin/logout', [AdminController::class, 'adminLogout'])->name('admin.logout');
+Route::get('/verify', [AdminController::class, 'showVerification'])->name('custom.verification.form');
+Route::get('/verify', [AdminController::class, 'verificationVerify'])->name('custom.verification.verify');

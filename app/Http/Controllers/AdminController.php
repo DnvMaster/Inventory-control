@@ -22,7 +22,23 @@ class AdminController extends Controller
             Auth::logout();
             return redirect()->route('custom.verification.form')->with('status','Проверочный код отправлен на ваш электронный адрес');
         }
-        return redirect()->back()->withErrors(['email' => 'Вами были предоставленные неверные учетные данные']);
+        return redirect()->back()->withErrors(['email' => 'Предоставленны неверные учетные данные']);
+    }
+
+    public function showVerification()
+    {
+        return view('auth.verify');
+    }
+
+    public function verificationVerify(Request $request)
+    {
+        $request->validate(['code'=>'required|numeric']);
+        if($request->code == session('verification_code')) {
+            Auth::loginUsingId(session('user_id'));
+            session()->forget(['verification_code','user_id']);
+            return redirect()->intended('/dashboard');
+        }
+        return back()->withErrors(['code'=>'Неверный код']);
     }
 
     public function adminLogout(Request $request)

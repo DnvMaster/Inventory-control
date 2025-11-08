@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>DnvMaster | Вход в аккаунт</title>
+        <title>DnvMaster | Код проверки</title>
         <link rel="shortcut icon" href="{{ asset('backend/images/favicon.ico') }}">
         <link href="{{ asset('backend/css/app.min.css') }}" rel="stylesheet" id="app-style">
         <link href="{{ asset('backend/css/icons.min.css') }}" rel="stylesheet">
@@ -16,7 +16,20 @@
                             <div class="col-md-7 mx-auto">
                                 <div class="mb-0 border-0 p-md-5 p-lg-0 p-4">
                                     <div class="pt-0">
-                                        <form action="{{ route('login') }}" method="post" class="my-4">
+                                        @if(session('status'))
+                                            <div class="alert alert-success">{{ session('status') }}</div>
+                                        @endif
+
+                                        @if($errors->any())
+                                            <div class="alert alert-danger mt-3">
+                                                <ul>
+                                                    @foreach($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
+                                        <form action="{{ route('custom.verification.verify') }}" method="post" class="my-4">
                                             @csrf
                                             @if(session('error'))
                                                 <div class="alert alert-danger">
@@ -24,42 +37,21 @@
                                                 </div>
                                             @endif
                                             <div class="form-group mb-3">
-                                                <label for="emailaddress" class="form-label">Електронная почта</label>
-                                                <input class="form-control" type="email" name="email" id="emailaddress" required="" placeholder="Введите свой Е-мэйл">
+                                                <label for="emailaddress" class="form-label">Код проверки</label>
+                                                <input class="form-control" type="text" name="code" id="code" required="" placeholder="Введите код проверки">
                                                  @error('email')
                                                     <smail class="text-danger">{{ $message }}</smail>
                                                 @enderror
                                             </div>
-                                           
-                                            <div class="form-group mb-3">
-                                                <label for="password" class="form-label">Пароль</label>
-                                                <input class="form-control" type="password" name="password" required="" id="password" placeholder="Введите свой пароль">
-                                                 @error('password')
-                                                    <smail class="text-danger">{{ $message }}</smail>
-                                                @enderror
-                                            </div>
                 
-                                            <div class="form-group d-flex mb-3">
-                                                <div class="col-sm-6">
-                                                    <div class="form-check">
-                                                        <input type="checkbox" class="form-check-input" id="checkbox-signin" checked>
-                                                        <label class="form-check-label" for="checkbox-signin">Запомнить</label>
-                                                    </div>
-                                                </div>
-                
-                                            </div>
                                             <div class="form-group mb-0 row">
                                                 <div class="col-12">
                                                     <div class="d-grid">
-                                                        <button class="btn btn-primary" type="submit"> Войти </button>
+                                                        <button class="btn btn-primary" type="submit"> Подтвердить </button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </form>
-                                        <div class="saprator my-4"><span>или войдите с помощью</span></div>
-                                        <div class="text-center text-muted mb-4">
-                                            <p class="mb-0">У вас ещё нет аккаунта ?<a class='text-primary ms-2 fw-medium' href='{{ route('register') }}'>Зарегистрируйтесь</a></p>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
