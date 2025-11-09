@@ -36,9 +36,9 @@
                                         <h6 class="text-overflow m-0">Привет !</h6>
                                     </div>
         
-                                    <a href="pages-profile.html" class="dropdown-item notify-item">
+                                    <a href="{{ route('admin.profile') }}" class="dropdown-item notify-item">
                                         <i class="mdi mdi-account-circle-outline fs-16 align-middle"></i>
-                                        <span>Аккаунт</span>
+                                        <span>Профиль</span>
                                     </a>
         
                                     <a href="auth-lock-screen.html" class="dropdown-item notify-item">

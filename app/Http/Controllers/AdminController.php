@@ -41,6 +41,11 @@ class AdminController extends Controller
         return back()->withErrors(['code'=>'Неверный код']);
     }
 
+    public function adminProfile()
+    {
+        return view('admin.admin_profile');
+    }
+
     public function adminLogout(Request $request)
     {
         Auth::guard('web')->logout();
