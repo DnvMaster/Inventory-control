@@ -1,5 +1,6 @@
 @extends('admin.admin_master')
 @section('admin')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <div class="container-xxl">
         <div class="py-3 d-flex align-items-sm-center flex-sm-row flex-column">
             <div class="flex-grow-1">
@@ -80,14 +81,14 @@
                                              <div class="form-group mb-3 row">
                                                 <label class="form-label">{{ __('Изображение профиля') }}</label>
                                                 <div class="col-lg-12 col-xs-12">
-                                                    <input class="form-control" type="file" name="photo">
+                                                    <input class="form-control" type="file" name="photo" id="image">
                                                 </div>
                                             </div>
 
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label"></label>
                                                 <div class="col-lg-12 col-xs-12">
-                                                    <img src="{{ (!empty($profile->photo)) ? url('upload/user_images'.$profile->photo) : url('upload/no_image.jpg') }}" class="rounded-circle avatar-xxl img-thumbnail float-start" alt="image profile">
+                                                    <img id="showImage" src="{{ (!empty($profile->photo)) ? url('upload/user_images'.$profile->photo) : url('upload/no_image.jpg') }}" class="rounded-circle avatar-xxl img-thumbnail float-start" alt="image profile">
                                                 </div>
                                             </div>
 
@@ -145,4 +146,16 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        $(docunent).ready(function() {
+            $('#image'),change(function(e) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#showImage').attr('src',e.target.result);
+                }
+                reader.readDataURL(e.target.files['0']);
+            });
+        });
+    </script>
 @endsection
