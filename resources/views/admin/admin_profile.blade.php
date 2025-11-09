@@ -21,7 +21,7 @@
                     <div class="card-body">
                         <div class="align-items-center">
                             <div class="d-flex align-items-center">
-                            <img src="{{ (!empty($profile->photo)) ? url('upload/user_images'.$profile->photo) : url('upload/no_image.jpg') }}" class="rounded-circle avatar-xxl img-thumbnail float-start" alt="image profile">
+                            <img src="{{ (!empty($profile->photo)) ? url('upload/user_images/'.$profile->photo) : url('upload/no_image.jpg') }}" class="rounded-circle avatar-xxl img-thumbnail float-start" alt="image profile">
                             <div class="overflow-hidden ms-4">
                                 <h4 class="m-0 text-dark fs-20">{{ $profile->name }}</h4>
                                 <p class="my-1 text-muted fs-16">{{ $profile->email }}</p>
@@ -42,7 +42,8 @@
                                     </div>
 
 
-                                    <form action="">
+                                    <form action="{{ route('profile.store') }}" method="post" enctype="multipart/form-data">
+                                        @csrf
                                         <div class="card-body">
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">{{ __('Имя') }}</label>
@@ -88,7 +89,7 @@
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label"></label>
                                                 <div class="col-lg-12 col-xs-12">
-                                                    <img id="showImage" src="{{ (!empty($profile->photo)) ? url('upload/user_images'.$profile->photo) : url('upload/no_image.jpg') }}" class="rounded-circle avatar-xxl img-thumbnail float-start" alt="image profile">
+                                                    <img id="showImage" src="{{ (!empty($profile->photo)) ? url('upload/user_images/'.$profile->photo) : url('upload/no_image.jpg') }}" class="rounded-circle avatar-xxl img-thumbnail float-start" alt="image profile">
                                                 </div>
                                             </div>
 
@@ -148,14 +149,14 @@
     </div>
 
     <script type="text/javascript">
-        $(docunent).ready(function() {
-            $('#image'),change(function(e) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#showImage').attr('src',e.target.result);
-                }
-                reader.readDataURL(e.target.files['0']);
-            });
-        });
-    </script>
+    $(document).ready(function(){
+        $('#image').change(function(e){
+            var reader = new FileReader();
+            reader.onload = function(e){
+                $('#showImage').attr('src',e.target.result);
+            }
+            reader.readAsDataURL(e.target.files['0']);
+        })
+    }) 
+</script>
 @endsection

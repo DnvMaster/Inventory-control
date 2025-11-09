@@ -25,6 +25,7 @@ Route::post('/admin/login', [AdminController::class, 'adminLogin'])->name('admin
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile',[AdminController::class, 'adminProfile'])->name('admin.profile');
+    Route::post('/profile/store',[AdminController::class,'profileStore'])->name('profile.store');
 });
 
 Route::get('/admin/logout', [AdminController::class, 'adminLogout'])->name('admin.logout');
