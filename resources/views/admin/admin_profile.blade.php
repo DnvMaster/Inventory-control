@@ -96,9 +96,6 @@
                                             <button type="submit" class="btn btn-primary">{{ __('Сохранить изменения') }}</button>
                                         </div>
                                     </form>
-
-
-
                                 </div>
                             </div>
 
@@ -107,38 +104,54 @@
                                     <div class="card-header">
                                         <div class="row align-items-center">
                                             <div class="col">                      
-                                                <h4 class="card-title mb-0">Change Password</h4>                      
+                                                <h4 class="card-title mb-0">{{ __('Сменить пароль') }}</h4>                      
                                             </div>                                                       
                                         </div>
                                     </div>
-                                    <div class="card-body mb-0">
-                                        <div class="form-group mb-3 row">
-                                            <label class="form-label">Old Password</label>
-                                            <div class="col-lg-12 col-xl-12">
-                                                <input class="form-control" type="password" placeholder="Old Password">
-                                            </div>
-                                        </div>
-                                        <div class="form-group mb-3 row">
-                                            <label class="form-label">New Password</label>
-                                            <div class="col-lg-12 col-xl-12">
-                                                <input class="form-control" type="password" placeholder="New Password">
-                                            </div>
-                                        </div>
-                                        <div class="form-group mb-3 row">
-                                            <label class="form-label">Confirm Password</label>
+                                    
+                                    <form action="{{ route('admin.password.update') }}" method="post">
+                                        @csrf
+                                        <div class="card-body mb-0">
+
+                                            <div class="form-group mb-3 row">
+                                                <label class="form-label">{{ __('Старый пароль') }}</label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <input class="form-control" type="password" placeholder="Confirm Password">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col-lg-12 col-xl-12">
-                                                    <button type="submit" class="btn btn-primary">Change Password</button>
-                                                    <button type="button" class="btn btn-danger">Cancel</button>
+                                                    <input class="form-control @error('old_password') is-invalid @enderror"
+                                                    type="password" name="old_password" id="old_password" placeholder="{{ __('Введите свой старый пароль') }}">
+                                                    @error('old_password')
+                                                        <span class="text-danger"></span>
+                                                    @enderror
                                                 </div>
                                             </div>
 
+                                            <div class="form-group mb-3 row">
+                                                <label class="form-label">{{ __('Новый пароль') }}</label>
+                                                <div class="col-lg-12 col-xl-12">
+                                                    <input class="form-control @error('new_password') is-invalid @enderror" 
+                                                    type="password" name="new_password" id="new_password" placeholder="{{ __('Введите новый пароль') }}">
+                                                    @error('new_password')
+                                                        <span class="text-danger"></span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="form-group mb-3 row">
+                                                <label class="form-label">{{ __('Повторите пароль') }}</label>
+                                                    <div class="col-lg-12 col-xl-12">
+                                                        <input class="form-control @error('new_password_confirmation') is-invalid @enderror" 
+                                                        type="password" name="new_password_confirmation" id="new_password_confirmation" placeholder="{{ __('Повторите ввод нового пароля') }}">
+                                                        @error('new_password_confirmation')
+                                                            <span class="text-danger"></span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-lg-12 col-xl-12">
+                                                        <button type="submit" class="btn btn-primary">{{ __('Изменить' )}}</button>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

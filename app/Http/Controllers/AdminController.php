@@ -76,6 +76,11 @@ class AdminController extends Controller
         return redirect()->back()->with($notification);
     }
 
+    public function adminPasswordUpdate(Request $request)
+    {
+        //
+    }
+
     public function adminLogout(Request $request)
     {
         Auth::guard('web')->logout();
