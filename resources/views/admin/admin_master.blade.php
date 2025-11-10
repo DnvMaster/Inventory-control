@@ -9,6 +9,7 @@
         <link rel="shortcut icon" href="{{ asset('backend/images/favicon.ico') }}">
         <link href="{{ asset('backend/css/app.min.css') }}" rel="stylesheet" id="app-style">
         <link href="{{ asset('backend/css/icons.min.css') }}" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
     </head>
     <body data-menu-color="light" data-sidebar="default">
         <div id="app-layout">
@@ -45,5 +46,28 @@
         <script src="https://apexcharts.com/samples/assets/stock-prices.js"></script>
         <script src="{{ asset('backend/js/pages/analytics-dashboard.init.js') }}"></script>
         <script src="{{ asset('backend/assets/js/app.js') }}"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script>
+            @if (Session::has('message'))
+                var type = "{{ Session::get('alert-type','info') }}"
+                switch(type) {
+                    case 'info':
+                        toastr.info("{{ Session::get('message') }}");
+                    break;
+
+                    case 'success':
+                        toastr.success("{{ Session::get('message') }}");
+                    break;
+
+                    case 'warning':
+                        toastr.warning("{{ Session::get('message') }}");
+                    break;
+
+                    case 'error':
+                        toastr.error("{{ Session::get('message') }}");
+                    break;
+                }
+            @endif
+        </script>
     </body>
 </html>

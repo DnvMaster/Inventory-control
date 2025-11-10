@@ -68,7 +68,12 @@ class AdminController extends Controller
             }
         }
         $data->save();
-        return redirect()->back();
+
+        $notification = array(
+            'message' => 'Профиль успешно обновлён.',
+            'alert-type' => 'success',
+        );
+        return redirect()->back()->with($notification);
     }
 
     public function adminLogout(Request $request)
