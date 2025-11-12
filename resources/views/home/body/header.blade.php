@@ -30,11 +30,20 @@
       </div>
       <div class="col-auto d-flex align-items-center">
           <div class="lonyo-header-info-wraper2">
-            <div class="lonyo-header-info-content">
-              <ul>
-                <li><a href="{{ route('login') }}">{{ __('Вход') }}</a></li>
-              </ul>
-            </div>
+            @auth
+              <div class="lonyo-header-info-content">
+                <ul>
+                  <li><a href="{{ route('dashboard') }}">{{ __('Панель') }}</a></li>
+                </ul>
+              </div>
+              @else
+              <div class="lonyo-header-info-content">
+                <ul>
+                  <li><a href="{{ route('login') }}">{{ __('Вход') }}</a></li>
+                </ul>
+              </div>
+            @endauth
+            
           </div>
           <div class="lonyo-header-menu">
           <nav class="navbar site-navbar justify-content-between">

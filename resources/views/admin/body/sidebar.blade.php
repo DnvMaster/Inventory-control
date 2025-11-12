@@ -22,19 +22,19 @@
         <li>
             <a href="{{ route('dashboard') }}" class="tp-link">
                 <i data-feather="home"></i>
-                <span> Панель </span>
+                <span> {{ __('Панель управления') }}</span>
             </a>
         </li>
-        <li class="menu-title">Страницы</li>
+
         <li>
             <a href="#sidebarAuth" data-bs-toggle="collapse"><i data-feather="users"></i>
-                <span> Аутентификация </span>
+                <span> {{ __('Настройки') }} </span>
                 <span class="menu-arrow"></span>
             </a>
             <div class="collapse" id="sidebarAuth">
                 <ul class="nav-second-level">
-                    <li><a href="auth-logout.html" class="tp-link">Логин</a></li>
-                    <li><a href="auth-register.html" class="tp-link">Регистрация</a></li>
+                    <li><a href="auth-logout.html" class="tp-link">{{ __('Все') }}</a></li>
+                    <li><a href="auth-register.html" class="tp-link">{{ __('Добавить') }}</a></li>
                 </ul>
             </div>
         </li>
