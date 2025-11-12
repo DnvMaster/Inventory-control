@@ -3,8 +3,8 @@
       <div class="row">
         <div class="col-lg-7 d-flex align-items-center">
           <div class="lonyo-hero-content" data-aos="fade-up" data-aos-duration="700">
-            <h1 class="hero-title">Manage your finances more effectively</h1>
-            <p class="text">Track your daily finances automatically. Manage your money in a friendly & flexible way, making it easy to spend guilt-free.</p>
+            <h1 class="hero-title">Эффективно управляйте своими финансами</h1>
+            <p class="text">Автоматически подсчитывайте свои ежедневные финансы. Управляйте своими деньгами удобным и гибким способом.</p>
             <div class="mt-50" data-aos="fade-up" data-aos-duration="900">
               <a href="sign-up.html" class="lonyo-default-btn hero-btn">Create a free account</a>
             </div>
