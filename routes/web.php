@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\ReviewController;
 
 Route::get('/', function () {
     return view('home.index');
@@ -32,3 +33,12 @@ Route::middleware('auth')->group(function () {
 Route::get('/admin/logout', [AdminController::class, 'adminLogout'])->name('admin.logout');
 Route::get('/verify', [AdminController::class, 'showVerification'])->name('custom.verification.form');
 Route::get('/verify', [AdminController::class, 'verificationVerify'])->name('custom.verification.verify');
+
+Route::middleware('auth')->group(function()
+{
+    Route::controller(ReviewController::class)->group(function()
+    {
+        Route::get('/all/review', 'allReview')->name('all.review');
+        Route::get('/add/review', 'addReview')->name('add.review');
+    });
+});

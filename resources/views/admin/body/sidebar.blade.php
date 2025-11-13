@@ -33,8 +33,8 @@
             </a>
             <div class="collapse" id="sidebarAuth">
                 <ul class="nav-second-level">
-                    <li><a href="auth-logout.html" class="tp-link">{{ __('Все') }}</a></li>
-                    <li><a href="auth-register.html" class="tp-link">{{ __('Добавить') }}</a></li>
+                    <li><a href="{{ route('all.review') }}" class="tp-link">{{ __('Все') }}</a></li>
+                    <li><a href="{{ route('add.review') }}" class="tp-link">{{ __('Добавить') }}</a></li>
                 </ul>
             </div>
         </li>
