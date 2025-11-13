@@ -10,13 +10,13 @@ class ReviewController extends Controller
 {
     public function allReview()
     {
-        $allReview = Review::latest()->get();
-        return view('admin.backend.review.all_review', compact('allReview'));
+        $allReviews = Review::latest()->get();
+        return view('admin.backend.review.all_review', compact('allReviews'));
     }
 
     public function addReview()
     {
-        $addReview = Review::latest()->get();
-        return view('admin.backend.review.add_review', compact('addReview'));
+        $addReviews = Review::latest()->get();
+        return view('admin.backend.review.add_review', compact('addReviews'));
     }
 }
