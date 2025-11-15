@@ -16,7 +16,7 @@ class ReviewController extends Controller
 
     public function addReview()
     {
-        $addReviews = Review::latest()->get();
-        return view('admin.backend.review.add_review', compact('addReviews'));
+        //$addReviews = Review::latest()->get();
+        return view('admin.backend.review.add_review');
     }
 }
