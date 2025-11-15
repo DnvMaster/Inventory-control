@@ -7,8 +7,8 @@
             </div>
             <div class="text-end">
                 <ol class="breadcrumb m-0 py-0">
-                    <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('Таблица') }}</a></li>
-                    <li class="breadcrumb-item active">{{ __('Данные из б/д') }}</li>
+                    <li class="breadcrumb-item"><a href="{{ route('all.review') }}">{{ __('Список') }}</a></li>
+                    <li class="breadcrumb-item active">{{ __('пользователей') }}</li>
                 </ol>
             </div>
         </div>
@@ -18,7 +18,7 @@
                 <div class="card">
 
                     <div class="card-header">
-                        <h5 class="card-title mb-0">{{ __('Весь просмотр') }}</h5>
+                        <h5 class="card-title mb-0">{{ __('Все пользователи') }}</h5>
                     </div>
 
                     <div class="card-body">
@@ -42,8 +42,8 @@
                                         <td><img src="{{ asset($review->image) }}" style="width: 70px; height: 40px;" alt="{{ $review->name }}"></td>
                                         <td>{{ $review->message }}</td>
                                         <td>
-                                            <a class="btn btn-success btn-sm" href="">{{ __('Редактировать') }}</a>
-                                            <a class="btn btn-danger btn-sm" href="">{{ __('Удалить') }}</a>
+                                            <a class="btn btn-success btn-sm" href="{{ route('edit.review',$review->id) }}">{{ __('Редактировать') }}</a>
+                                            <a class="btn btn-danger btn-sm" href="{--{ route('delete.review', $review->id) }--}">{{ __('Удалить') }}</a>
                                         </td>
                                     </tr>
                                 @endforeach

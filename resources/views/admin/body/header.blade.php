@@ -30,7 +30,7 @@
                                 <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
 
                                     <div class="dropdown-header noti-title">
-                                        <h6 class="text-overflow m-0">Привет !</h6>
+                                        <h6 class="text-overflow m-0">{{ __('Привет') }}, {{ $profile->name }} !</h6>
                                     </div>
         
                                     <a href="{{ route('admin.profile') }}" class="dropdown-item notify-item">

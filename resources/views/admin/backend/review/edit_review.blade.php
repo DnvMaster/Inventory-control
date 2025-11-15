@@ -4,12 +4,12 @@
     <div class="container-xxl">
         <div class="py-3 d-flex align-items-sm-center flex-sm-row flex-column">
             <div class="flex-grow-1">
-                <h4 class="fs-18 fw-semibold m-0">{{ __('Новый пользователь') }}</h4>
+                <h4 class="fs-18 fw-semibold m-0">{{ __('Редактирование') }}</h4>
             </div>
             <div class="text-end">
                 <ol class="breadcrumb m-0 py-0">
-                    <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('Детали') }}&nbsp;</a></li>
-                    <li class="breadcumb-item active">&nbsp;{{ __('профиля') }}</li>
+                    <li class="breadcrumb-item"><a href="{{ route('edit.review',$editReview->id) }}">{{ __('Редактирование') }}&nbsp;</a></li>
+                    <li class="breadcumb-item active">&nbsp;{{ __('пользователя') }}</li>
                 </ol>
             </div>
         </div>
@@ -23,29 +23,30 @@
                                     <div class="card-header">
                                         <div class="row align-items-center">
                                             <div class="col">
-                                                <h4 class="card-title text-center mb-0">{{ __('Информация о пользователе') }}</h4>
+                                                <h4 class="card-title text-center mb-0">{{ __('Редактирование пользователя') }}</h4>
                                             </div>
                                         </div>
                                     </div>
-                                    <form action="{{ route('store.review') }}" method="post" enctype="multipart/form-data">
+                                    <form action="{{ route('update.review') }}" method="post" enctype="multipart/form-data">
                                         @csrf
+                                        <input type="hidden" name="id" value="{{ $editReview->id }}">
                                         <div class="card-body">
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">{{ __('Имя') }}</label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <input class="form-control" type="text" name="name" placeholder="{{ __('Введите имя') }}">
+                                                    <input class="form-control" type="text" name="name" value="{{ $editReview->name }}">
                                                 </div>
                                             </div>
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">{{ __('Должность') }}</label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <input class="form-control" type="text" name="position" placeholder="{{ __('Введите должность') }}">
+                                                    <input class="form-control" type="text" name="position" value="{{ $editReview->position }}">
                                                 </div>
                                             </div>
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">{{ __('Сообщение') }}</label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <textarea class="form-control" name="message"  placeholder="{{ __('Введите текс сообщения') }}"></textarea>    
+                                                    <textarea name="message" class="form-control">{{ $editReview->message }}</textarea>    
                                                 </div>
                                             </div>
                                              <div class="form-group mb-3 row">
@@ -57,7 +58,7 @@
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label"></label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <img class="rounded-circle avatar-xxl img-thumbnail float-start" id="showImage" src="{{ url('upload/no_image.jpg') }}" alt="Image Progile">
+                                                    <img class="rounded-circle avatar-xxl img-thumbnail float-start" id="showImage" src="{{ asset($editReview->image) }}" alt="Image Progile">
                                                 </div>
                                             </div>
                                             <button type="submit" class="btn btn-primary">{{ __('Сохранить') }}</button>
