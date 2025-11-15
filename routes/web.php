@@ -40,5 +40,6 @@ Route::middleware('auth')->group(function()
     {
         Route::get('/all/review', 'allReview')->name('all.review');
         Route::get('/add/review', 'addReview')->name('add.review');
+        Route::post('/store/review', 'storeReview')->name('store.review');
     });
 });

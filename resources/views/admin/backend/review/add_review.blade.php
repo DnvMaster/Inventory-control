@@ -27,19 +27,19 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <form action="{{ route('profile.store') }}" method="post" enctype="multipart/form-data">
+                                    <form action="{{ route('store.review') }}" method="post" enctype="multipart/form-data">
                                         @csrf
                                         <div class="card-body">
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">{{ __('Имя') }}</label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <input class="form-control" type="text" name="name" value="">
+                                                    <input class="form-control" type="text" name="name">
                                                 </div>
                                             </div>
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">{{ __('Должность') }}</label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <input class="form-control" type="text" name="position" value="">
+                                                    <input class="form-control" type="text" name="position">
                                                 </div>
                                             </div>
                                             <div class="form-group mb-3 row">
@@ -49,9 +49,9 @@
                                                 </div>
                                             </div>
                                              <div class="form-group mb-3 row">
-                                                <label class="form-label">{{ __('Профиль пользователя') }}</label>
+                                                <label class="form-label">{{ __('Фото пользователя') }}</label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <input class="form-control" type="file" name="photo" id="image">
+                                                    <input class="form-control" type="file" name="image">
                                                 </div>
                                             </div>
                                             <div class="form-group mb-3 row">

@@ -41,8 +41,10 @@
                                         <td>{{ $review->position }}</td>
                                         <td><img src="{{ asset($review->image) }}" style="width: 70px; height: 40px;" alt="{{ $review->name }}"></td>
                                         <td>{{ $review->message }}</td>
-                                        <td><a class="btn btn-success btn-sm" href="">{{ __('Редактировать') }}</a></td>
-                                        <td><a class="btn btn-danger btn-sm" href="">{{ __('Удалить') }}</a></td>
+                                        <td>
+                                            <a class="btn btn-success btn-sm" href="">{{ __('Редактировать') }}</a>
+                                            <a class="btn btn-danger btn-sm" href="">{{ __('Удалить') }}</a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
