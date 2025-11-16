@@ -95,6 +95,14 @@ class ReviewController extends Controller
 
     public function deleteReview($id)
     {
-        //
+        $review = Review::find($id);
+        $img = $review->image;
+        unlink($img);
+        Review::find($id)->delete();
+        $notification = array(
+            'message' => 'Данные успешно удалены',
+            'alert-type' => 'success',
+        );
+        return redirect()->back()->with($notification);
     }
 }

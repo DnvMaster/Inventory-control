@@ -43,7 +43,7 @@
                                         <td>{{ $review->message }}</td>
                                         <td>
                                             <a class="btn btn-success btn-sm" href="{{ route('edit.review',$review->id) }}">{{ __('Редактировать') }}</a>
-                                            <a class="btn btn-danger btn-sm" href="{--{ route('delete.review', $review->id) }--}">{{ __('Удалить') }}</a>
+                                            <a class="btn btn-danger btn-sm" href="{{ route('delete.review', $review->id) }}" id="delete">{{ __('Удалить') }}</a>
                                         </td>
                                     </tr>
                                 @endforeach
