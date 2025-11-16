@@ -22,33 +22,39 @@
                     </div>
 
                     <div class="card-body">
-                        <table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
-                            <thead>
-                                <tr>
-                                    <th>№</th>
-                                    <th>{{ __('Имя') }}</th>
-                                    <th>{{ __('Должность') }}</th>
-                                    <th>{{ __('Фото') }}</th>
-                                    <th>{{ __('Сообщение') }}</th>
-                                    <th>{{ __('Действие') }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($allReviews as $key => $review)
+                        <div class="table-responsive">
+                            <table class="table table-bordered border-primary mb-0">
+                                <thead>
                                     <tr>
-                                        <td>{{ $key + 1 }}</td>
-                                        <td>{{ $review->name }}</td>
-                                        <td>{{ $review->position }}</td>
-                                        <td><img src="{{ asset($review->image) }}" style="width: 70px; height: 40px;" alt="{{ $review->name }}"></td>
-                                        <td>{{ $review->message }}</td>
-                                        <td>
-                                            <a class="btn btn-success btn-sm" href="{{ route('edit.review',$review->id) }}">{{ __('Редактировать') }}</a>
-                                            <a class="btn btn-danger btn-sm" href="{{ route('delete.review', $review->id) }}" id="delete">{{ __('Удалить') }}</a>
-                                        </td>
+                                        <th>№</th>
+                                        <th>{{ __('Имя') }}</th>
+                                        <th>{{ __('Должность') }}</th>
+                                        <th>{{ __('Фото') }}</th>
+                                        <th>{{ __('Сообщение') }}</th>
+                                        <th>{{ __('Действие') }}</th>
                                     </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    @foreach ($allReviews as $key => $review)
+                                        <tr>
+                                            <td>{{ $key + 1 }}</td>
+                                            <td>{{ $review->name }}</td>
+                                            <td>{{ $review->position }}</td>
+                                            <td><img src="{{ asset($review->image) }}" style="width: 70px; height: 40px;" alt="{{ $review->name }}"></td>
+                                            <td>{{ $review->message }}</td>
+                                            <td>
+                                                <a href="{{ route('edit.review',$review->id) }}"><span class="mdi mdi-file-edit-outline" style="font-size: 26px; color:green;"></span></a>&nbsp;&nbsp;
+                                                <a href="{{ route('delete.review', $review->id) }}" id="delete"><span class="mdi mdi-delete-empty-outline" style="font-size: 26px; color:red;"></span></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <a class="btn btn-success m-3" href="{{ route('add.review') }}">
+                            <span class="mdi mdi-seed-plus-outline"></span>
+                            &nbsp;{{ __('Добавить') }}
+                        </a>
                     </div>
                 </div>
             </div>

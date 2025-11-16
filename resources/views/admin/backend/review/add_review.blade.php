@@ -60,7 +60,9 @@
                                                     <img class="rounded-circle avatar-xxl img-thumbnail float-start" id="showImage" src="{{ url('upload/no_image.jpg') }}" alt="Image Progile">
                                                 </div>
                                             </div>
-                                            <button type="submit" class="btn btn-primary">{{ __('Сохранить') }}</button>
+                                             <button type="submit" class="btn btn-primary">
+                                                <span class="mdi mdi-content-save-edit-outline"></span>&nbsp;{{ __('Сохранить') }}
+                                            </button>
                                         </div>
                                     </form>
                                 </div>

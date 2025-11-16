@@ -4,12 +4,12 @@
     <div class="container-xxl">
         <div class="py-3 d-flex align-items-sm-center flex-sm-row flex-column">
             <div class="flex-grow-1">
-                <h4 class="fs-18 fw-semibold m-0">{{ __('Редактирование') }}</h4>
+                <h4 class="fs-18 fw-semibold m-0">{{ __('Слайдер') }}</h4>
             </div>
             <div class="text-end">
                 <ol class="breadcrumb m-0 py-0">
-                    <li class="breadcrumb-item"><a href="{{ route('edit.review',$editReview->id) }}">{{ __('Редактирование') }}&nbsp;</a></li>
-                    <li class="breadcumb-item active">&nbsp;{{ __('пользователя') }}</li>
+                    <li class="breadcrumb-item"><a href="{{ route('get.slider') }}">{{ __('Слайды') }}&nbsp;/</a></li>
+                    <li class="breadcumb-item active">&nbsp;{{ __('просмотр') }}</li>
                 </ol>
             </div>
         </div>
@@ -23,34 +23,34 @@
                                     <div class="card-header">
                                         <div class="row align-items-center">
                                             <div class="col">
-                                                <h4 class="card-title text-center mb-0">{{ __('Редактирование пользователя') }}</h4>
+                                                <h4 class="card-title text-center mb-0">{{ __('Добавление слайдера') }}</h4>
                                             </div>
                                         </div>
                                     </div>
                                     <form action="{{ route('update.review') }}" method="post" enctype="multipart/form-data">
                                         @csrf
-                                        <input type="hidden" name="id" value="{{ $editReview->id }}">
+                                        <input type="hidden" name="id" value="{{ $slider->id }}">
                                         <div class="card-body">
                                             <div class="form-group mb-3 row">
-                                                <label class="form-label">{{ __('Имя') }}</label>
+                                                <label class="form-label"><b>{{ __('Заголовок') }}</b></label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <input class="form-control" type="text" name="name" value="{{ $editReview->name }}">
+                                                    <input class="form-control" type="text" name="title" value="{{ $slider->title }}">
                                                 </div>
                                             </div>
                                             <div class="form-group mb-3 row">
-                                                <label class="form-label">{{ __('Должность') }}</label>
+                                                <label class="form-label"><b>{{ __('Гиперссылка') }}</b></label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <input class="form-control" type="text" name="position" value="{{ $editReview->position }}">
+                                                    <input class="form-control" type="text" name="link" value="{{ $slider->link }}">
                                                 </div>
                                             </div>
                                             <div class="form-group mb-3 row">
-                                                <label class="form-label">{{ __('Сообщение') }}</label>
+                                                <label class="form-label"><b>{{ __('Описание слайда') }}</b></label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <textarea name="message" class="form-control">{{ $editReview->message }}</textarea>    
+                                                    <textarea name="description" class="form-control">{{ $slider->description }}</textarea>    
                                                 </div>
                                             </div>
                                              <div class="form-group mb-3 row">
-                                                <label class="form-label">{{ __('Фото пользователя') }}</label>
+                                                <label class="form-label"><b>{{ __('Изображение слайдера') }}</b></label>
                                                 <div class="col-lg-12 col-xl-12">
                                                     <input class="form-control" type="file" name="image" id="image">
                                                 </div>
@@ -58,11 +58,11 @@
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label"></label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <img class="rounded-circle avatar-xxl img-thumbnail float-start" id="showImage" src="{{ asset($editReview->image) }}" alt="Image Progile">
+                                                    <img class="img-thumbnail float-start" id="showImage" src="{{ asset($slider->image) }}" alt="Image Progile">
                                                 </div>
                                             </div>
                                             <button type="submit" class="btn btn-primary">
-                                                <span class="mdi mdi-content-save-edit-outline"></span>&nbsp;{{ __('Сохранить') }}
+                                                <span class="mdi mdi-file-edit-outline"></span>&nbsp;{{ __('Добавить') }}
                                             </button>
                                         </div>
                                     </form>

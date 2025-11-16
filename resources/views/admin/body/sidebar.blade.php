@@ -28,7 +28,7 @@
 
         <li>
             <a href="#sidebarAuth" data-bs-toggle="collapse"><i data-feather="users"></i>
-                <span> {{ __('Настройки') }} </span>
+                <span> {{ __('Пользователи') }} </span>
                 <span class="menu-arrow"></span>
             </a>
             <div class="collapse" id="sidebarAuth">
@@ -41,13 +41,12 @@
         <li>
             <a href="#sidebarError" data-bs-toggle="collapse">
                 <i data-feather="alert-octagon"></i>
-                <span> Ошибки страниц </span>
+                <span>{{ __('Слайдер')}} </span>
                 <span class="menu-arrow"></span>
             </a>
             <div class="collapse" id="sidebarError">
                 <ul class="nav-second-level">
-                    <li><a href="error-404.html" class="tp-link">Ошибка 404</a></li>
-                    <li><a href="error-500.html" class="tp-link">Ошибка 500</a></li>
+                    <li><a href="{{ route('get.slider') }}" class="tp-link">{{ __('Слайды') }}</a></li>
                 </ul>
             </div>
         </li>
