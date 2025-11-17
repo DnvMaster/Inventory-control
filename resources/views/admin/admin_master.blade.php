@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Панель администратора</title>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="viewport" content="">
         <meta name="description" content="">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
