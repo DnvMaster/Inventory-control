@@ -18,17 +18,15 @@
         </a>
     </div>
     <ul id="side-menu">
-        <li class="menu-title">Меню</li>
         <li>
-            <a href="{{ route('dashboard') }}" class="tp-link">
+            <a href="{{ route('dashboard') }}" class="tp-link" style="font-size: 16px;">
                 <i data-feather="home"></i>
-                <span> {{ __('Панель управления') }}</span>
+                <span><b>{{ __('Панель управления') }}</b></span>
             </a>
         </li>
-
         <li>
             <a href="#sidebarAuth" data-bs-toggle="collapse"><i data-feather="users"></i>
-                <span> {{ __('Пользователи') }} </span>
+                <span> {{ __('Пользователь') }} </span>
                 <span class="menu-arrow"></span>
             </a>
             <div class="collapse" id="sidebarAuth">
@@ -39,14 +37,28 @@
             </div>
         </li>
         <li>
-            <a href="#sidebarError" data-bs-toggle="collapse">
+            <a href="#sidebarSlider" data-bs-toggle="collapse">
                 <i data-feather="alert-octagon"></i>
-                <span>{{ __('Слайдер')}} </span>
+                <span>{{ __('Настройки слайдера')}} </span>
                 <span class="menu-arrow"></span>
             </a>
-            <div class="collapse" id="sidebarError">
+            <div class="collapse" id="sidebarSlider">
                 <ul class="nav-second-level">
-                    <li><a href="{{ route('get.slider') }}" class="tp-link">{{ __('Слайды') }}</a></li>
+                    <li><a href="{{ route('get.slider') }}" class="tp-link">{{ __('Слайдер') }}</a></li>
+                </ul>
+            </div>
+        </li>
+         <li>
+            <a href="#sidebarFeatures" data-bs-toggle="collapse">
+                <i data-feather="alert-octagon"></i>
+                <span> {{ __('Настройки функций') }} </span>
+                <span class="menu-arrow"></span>
+            </a>
+            <div class="collapse" id="sidebarFeatures">
+                <ul class="nav-second-level">
+                    <li><a href="{{ route('all.feature') }}" class="tp-link">{{ __('Все') }}</a></li>
+                    <li><a href="{{ route('add.feature') }}" class="tp-link">{{ __('Добавить') }}</a></li>
+                    <li><a href="{--{ route('edit.feature') }--}" class="tp-link">{{ __('Редактировать') }}</a></li>
                 </ul>
             </div>
         </li>

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\HomeController;
 
 Route::get('/', function () {
     return view('home.index');
@@ -55,5 +56,12 @@ Route::middleware('auth')->group(function()
         Route::post('/edit-features/{id}', 'editFeatures');
         Route::post('/edit/reviews/{id}', 'editReviews');
         Route::post('/edit/answers/{id}', 'editAnswers');
+    });
+
+    Route::controller(HomeController::class)->group(function()
+    {
+        Route::get('/all/feature', 'allFeature')->name('all.feature');
+        Route::get('/add/feature', 'addFeature')->name('add.feature');
+        // Route::post('/edit/feature/{id}', 'editFeature')->name('edit.feature');
     });
 });
