@@ -80,9 +80,18 @@ class SliderController extends Controller
     public function editFeatures(Request $request, $id)
     {
         $title = Title::findOrFail($id);
-
         if($request->has('features')) {
             $title->features = $request->features;
+        }
+        $title->save();
+        return response()->json(['success' => true]);
+    }
+
+    public function editReviews(Request $request, $id)
+    {
+        $title = Title::findOrFail($id);
+        if($request->has('reviews')) {
+            $title->reviews = $request->reviews;
         }
         $title->save();
         return response()->json(['success' => true]);

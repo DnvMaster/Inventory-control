@@ -81,7 +81,7 @@
     <div class="lonyo-feature-shape"></div>
   </div>
 
-   <script>
+  <script>
     document.addEventListener("DOMContentLoaded", function(){
       const titleElement = document.getElementById("features-title");
       function saveChanges(element) {
