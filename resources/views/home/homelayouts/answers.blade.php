@@ -1,7 +1,10 @@
 <div class="lonyo-section-padding4">
     <div class="container">
+      @php
+        $title = App\Models\Title::find(1);  
+      @endphp
       <div class="lonyo-section-title center">
-        <h2>Find answers to all questions below</h2>
+        <h2 id="answers-title" contenteditable="{{ auth()->check() ? 'true' : 'false' }}" data-id="{{ $title->id }}">{{ $title->answers }}</h2>
       </div>
       <div class="lonyo-faq-shape"></div>
       <div class="lonyo-faq-wrap1">
@@ -71,3 +74,37 @@
       </div>
     </div>
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      const titleElement = document.getElementById("answers-title");
+      function saveChanges(element) {
+        let answersId = element.dataset.id;
+        let field = element.id === "answers-title" ? "answers" : "";
+        let newValue = element.innerText.trim();
+        fatch(`/edit-answers/${answersId}`,{
+          method: "POST",
+          headers: {
+            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content"),"Content-Type": "application/json"
+          },
+          body: JSON.stringify({ [field]:newValue })
+        })
+        .then(response => response.json())
+        .then(data => {
+          if(data.success) {
+            console.log(`${field} Обновлено успешно`);
+          }
+        })
+        .catch(error => console.error("Error:", error)); 
+      }
+      document.addEventListener("keydown", function(e){
+        if (e.key === "Enter") {
+          e.preventDefault();
+          saveChanges(e.target);
+        }
+      });
+      titleElement.addEventListener("blur", function () {
+        saveChanges(titleElement);
+      });
+    });
+   </script>

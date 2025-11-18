@@ -54,5 +54,6 @@ Route::middleware('auth')->group(function()
         Route::post('/edit/slider/{id}', 'editSlider');
         Route::post('/edit-features/{id}', 'editFeatures');
         Route::post('/edit/reviews/{id}', 'editReviews');
+        Route::post('/edit/answers/{id}', 'editAnswers');
     });
 });
