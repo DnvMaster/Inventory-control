@@ -25,11 +25,11 @@
             </a>
         </li>
         <li>
-            <a href="#sidebarAuth" data-bs-toggle="collapse"><i data-feather="users"></i>
+            <a href="#sidebarReview" data-bs-toggle="collapse"><i data-feather="users"></i>
                 <span> {{ __('Пользователь') }} </span>
                 <span class="menu-arrow"></span>
             </a>
-            <div class="collapse" id="sidebarAuth">
+            <div class="collapse" id="sidebarReview">
                 <ul class="nav-second-level">
                     <li><a href="{{ route('all.review') }}" class="tp-link">{{ __('Все') }}</a></li>
                     <li><a href="{{ route('add.review') }}" class="tp-link">{{ __('Добавить') }}</a></li>

@@ -16,11 +16,21 @@ class HomeController extends Controller
 
     public function addFeature()
     {
-        //
+        return view('admin.backend.feature.add_feature');
     }
 
-    public function editFeature(Request $request, $id)
+    public function storeFeature(Request $request)
     {
-        //
+        Feature::create([
+            'title' => $request->title,
+            'icon' => $request->icon,
+            'description' => $request->description,
+        ]);
+
+        $notification = array(
+            'message' => 'Данные были успешно добавлены',
+            'alert-type' => 'success',
+        );
+        return redirect()->route('all.feature')->with($notification);
     }
 }
