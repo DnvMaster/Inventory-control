@@ -63,6 +63,8 @@ Route::middleware('auth')->group(function()
         Route::get('/all/feature', 'allFeature')->name('all.feature');
         Route::get('/add/feature', 'addFeature')->name('add.feature');
         Route::post('/store/feature', 'storeFeature')->name('store.feature');
-        // Route::post('/edit/feature/{id}', 'editFeature')->name('edit.feature');
+        Route::get('/edit/feature/{id}', 'editFeature')->name('edit.feature');
+        Route::post('/update/feature', 'UpdateFeature')->name('update.feature');
+        Route::get('/delete/feature/{id}', 'deleteFeature')->name('delete.feature');
     });
 });

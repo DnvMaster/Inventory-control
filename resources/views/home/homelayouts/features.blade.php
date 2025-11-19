@@ -11,7 +11,7 @@
       </div>
       <div class="row">
         @php
-          $features = App\Models\Feature::latest()->get();
+          $features = App\Models\Feature::latest()->limit(6)->get();
         @endphp
 
         @foreach($features as $feature)
@@ -19,7 +19,7 @@
           <div class="lonyo-service-wrap light-bg" data-aos="fade-up" data-aos-duration="500">
             <div class="lonyo-service-title">
               <h4>{{ $feature->title }}</h4>
-              <img src="{{ asset('frontend/images/v1') }}/{{ $feature->icon }}" alt="{{ $feature->title }}">
+              <img src="{{ asset('frontend/images') }}/v1/{{ $feature->icon }}" alt="{{ $feature->title }}">
             </div>
             <div class="lonyo-service-data">
               <p>{{ Str::limit($feature->description, 90,'...') }}</p>

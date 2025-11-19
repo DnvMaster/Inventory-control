@@ -58,7 +58,6 @@
                 <ul class="nav-second-level">
                     <li><a href="{{ route('all.feature') }}" class="tp-link">{{ __('Все') }}</a></li>
                     <li><a href="{{ route('add.feature') }}" class="tp-link">{{ __('Добавить') }}</a></li>
-                    <li><a href="{--{ route('edit.feature') }--}" class="tp-link">{{ __('Редактировать') }}</a></li>
                 </ul>
             </div>
         </li>

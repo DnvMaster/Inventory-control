@@ -39,10 +39,10 @@
                                             <td>{{ $key + 1 }}</td>
                                             <td>{{ $feature->title }}</td>
                                             <td>{{ $feature->icon }}</td>
-                                            <td>{{ Str::limit($feature->description, 50, '...') }}</td>
+                                            <td>{{ Str::limit($feature->description, 80, '...') }}</td>
                                             <td>
-                                                <a href="{--{ route('edit.review',$review->id) }--}"><span class="mdi mdi-file-edit-outline" style="font-size: 26px; color:green;"></span></a>&nbsp;&nbsp;
-                                                <a href="{--{ route('delete.review', $review->id) }--}" id="delete"><span class="mdi mdi-delete-empty-outline" style="font-size: 26px; color:red;"></span></a>
+                                                <a href="{{ route('edit.feature',$feature->id) }}"><span class="mdi mdi-file-edit-outline" style="font-size: 26px; color:green;"></span></a>&nbsp;&nbsp;
+                                                <a href="{{ route('delete.feature', $feature->id) }}" id="delete"><span class="mdi mdi-delete-empty-outline" style="font-size: 26px; color:red;"></span></a>
                                             </td>
                                         </tr>
                                     @endforeach
