@@ -72,5 +72,6 @@ Route::middleware('auth')->group(function()
     Route::controller(ClarifiesController::class)->group(function()
     {
         Route::get('/all/clarifies', 'allClarifies')->name('all.clarifies');
+        Route::post('/update/clarifies', 'updateClarifies')->name('update.clarifies');
     });
 });
