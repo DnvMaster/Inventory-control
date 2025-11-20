@@ -58,7 +58,7 @@
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label"></label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <img class="img-thumbnail float-start" id="showImage" src="{{ asset($slider->image) }}" alt="Image Progile">
+                                                    <img class="img-thumbnail float-start" id="showImage" src="{{ asset($slider->image) }}" alt="{{ $slider->title }}">
                                                 </div>
                                             </div>
                                             <button type="submit" class="btn btn-primary">

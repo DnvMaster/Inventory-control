@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\HomeController;
+use App\Http\Controllers\Backend\ClarifiesController;
 
 Route::get('/', function () {
     return view('home.index');
@@ -66,5 +67,10 @@ Route::middleware('auth')->group(function()
         Route::get('/edit/feature/{id}', 'editFeature')->name('edit.feature');
         Route::post('/update/feature', 'UpdateFeature')->name('update.feature');
         Route::get('/delete/feature/{id}', 'deleteFeature')->name('delete.feature');
+    });
+
+    Route::controller(ClarifiesController::class)->group(function()
+    {
+        Route::get('/all/clarifies', 'allClarifies')->name('all.clarifies');
     });
 });

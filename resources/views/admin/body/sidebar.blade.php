@@ -48,7 +48,7 @@
                 </ul>
             </div>
         </li>
-         <li>
+        <li>
             <a href="#sidebarFeatures" data-bs-toggle="collapse">
                 <i data-feather="alert-octagon"></i>
                 <span> {{ __('Настройки функций') }} </span>
@@ -58,6 +58,19 @@
                 <ul class="nav-second-level">
                     <li><a href="{{ route('all.feature') }}" class="tp-link">{{ __('Все') }}</a></li>
                     <li><a href="{{ route('add.feature') }}" class="tp-link">{{ __('Добавить') }}</a></li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a href="#sidebarClarifies" data-bs-toggle="collapse">
+                <i data-feather="alert-octagon"></i>
+                <span> {{ __('Секция стратегия') }} </span>
+                <span class="menu-arrow"></span>
+            </a>
+            <div class="collapse" id="sidebarClarifies">
+                <ul class="nav-second-level">
+                    <li><a href="{{ route('all.clarifies') }}" class="tp-link">{{ __('Все') }}</a></li>
+                    <li><a href="{--{ route('add.clarifies') }--}" class="tp-link">{{ __('Добавить') }}</a></li>
                 </ul>
             </div>
         </li>
